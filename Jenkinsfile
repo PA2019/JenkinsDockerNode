@@ -11,7 +11,7 @@ node('centos'){
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("PA2019/JenkinsDockerNode")
+        app = docker.build("getintodevops/hellonode")
     }
 
     stage('Test image') {
