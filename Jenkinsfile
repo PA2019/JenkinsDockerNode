@@ -1,4 +1,4 @@
-node {
+node('centos'){
     def app
 
     stage('Clone repository') {
