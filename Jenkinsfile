@@ -12,6 +12,21 @@ node('centos'){
         app = docker.build("pa-test")
     }
 
+    stage('Cleanup Containers') {
+        /* Stop and delete all running
+         * docker containers */
+        try {
+            sh '/usr/bin/docker stop $(docker ps -a -q)'
+            sh '/usr/bin/docker rm $(docker ps -a -q)'
+            sh 'exit 1'
+        }
+        catch (exc) {
+            echo 'Something failed, I should sound the klaxons!'
+            throw
+        }
+        
+    }
+    
     stage('Run HTTP Server') { 
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
