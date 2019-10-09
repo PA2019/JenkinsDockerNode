@@ -18,7 +18,7 @@ node('centos'){
         try {
             sh '/usr/bin/docker stop $(docker ps -a -q)'
             sh '/usr/bin/docker rm $(docker ps -a -q)'
-            sh 'exit 1'
+             /* sh 'exit 1' */
         }
         catch (exc) {
             echo 'Something failed, I should sound the klaxons!'
