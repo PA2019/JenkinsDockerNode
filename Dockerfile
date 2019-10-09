@@ -11,3 +11,5 @@ HEALTHCHECK --interval=5s \
 
 # docker to expose this port
 EXPOSE 8000
+
+docker run -it -p 8000:8000 pa-test
