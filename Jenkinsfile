@@ -26,7 +26,7 @@ node('centos'){
         
         sh '/usr/bin/docker run -d -p 8000:8000 pa-test'
         /* sh "cd back-end && bin/ci" */       
-       /* sh '/usr/bin/docker run -it -p 8000:8000 pa-test'
+       /* sh '/usr/bin/docker run -it -p 8000:8000 pa-test' */
       
     } 
 
