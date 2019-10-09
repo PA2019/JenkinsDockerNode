@@ -19,7 +19,7 @@ node('centos'){
           app.inside {
              sh 'echo "Tests passed for PA2019-JenkinsDockerNode"'  
          } 
-        steps {
+        step {
              /* sh 'echo "Tests passed for PA2019-JenkinsDockerNode"' */
              /* sh "cd back-end && bin/ci" */       
             sh '/usr/bin/docker run -it -p 8000:8000 pa-test'
