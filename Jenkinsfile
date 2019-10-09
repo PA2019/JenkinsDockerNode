@@ -15,7 +15,7 @@ node('centos'){
     stage('Cleanup Containers') {
         /* Stop and delete all running
          * docker containers */
-        if [[ `docker ps -a -q | wc -l` -gt 0 ]];
+        if [ `docker ps -a -q | wc -l` -gt 0 ];
             then
                 sh '/usr/bin/docker stop $(docker ps -a -q)'
                 sh '/usr/bin/docker rm $(docker ps -a -q)'
