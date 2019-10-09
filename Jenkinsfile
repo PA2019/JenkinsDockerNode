@@ -23,6 +23,13 @@ node('centos'){
         else
             echo NO;
         fi
+        
+        if [[ `/usr/bin/docker images -q | wc -l` -gt 0 ]]; 
+            then
+                /usr/bin/docker rmi $(/usr/bin/docker images | grep -i "none" | awk "{print \$3}");
+        else
+            echo NO;
+        fi
         '''
     }
     
