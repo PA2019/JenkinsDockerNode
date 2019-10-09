@@ -1,17 +1,6 @@
 node('centos'){
     def app
 
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
-        checkout scm
-    }
-
-    stage('Build HTTP Server') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-        app = docker.build("pa-test")
-    }
-
     stage('Cleanup Containers') {
         /* Stop and delete all running
          * docker containers */
@@ -33,6 +22,17 @@ node('centos'){
         '''
     }
     
+    stage('Clone repository') {
+        /* Let's make sure we have the repository cloned to our workspace */
+        checkout scm
+    }
+
+    stage('Build HTTP Server') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+        app = docker.build("pa-test")
+    }
+
     stage('Run HTTP Server') { 
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
