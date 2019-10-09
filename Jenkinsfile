@@ -16,7 +16,7 @@ node('centos'){
         if [[ `/usr/bin/docker images -a | grep -i "none" | wc -l` -gt 0 ]]; 
             then
              echo YES;
-             /usr/bin/docker rmi $(/usr/bin/docker images -a | grep -i "none" | awk "{print \$3}");
+             /usr/bin/docker rmi $(/usr/bin/docker images -a | grep -i "none" | awk '{print $3}');
         else
             echo NO;
         fi
