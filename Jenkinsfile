@@ -1,7 +1,7 @@
 node('centos'){
     def app
 
-    stage('Cleanup Containers') {
+    stage('CLEANUP Containers') {
         /* Stop and delete all running
          * docker containers */
         sh '''
@@ -23,18 +23,18 @@ node('centos'){
         '''
     }
     
-    stage('Clone repository') {
+    stage('CLONE repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
     }
 
-    stage('Build HTTP Server') {
+    stage('BUILD HTTP Server') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         app = docker.build("pa-test")
     }
 
-    stage('Run HTTP Server') { 
+    stage('TEST HTTP Server') { 
         
          sh '/usr/bin/docker run -d -p 8000:8000 pa-test'
         
