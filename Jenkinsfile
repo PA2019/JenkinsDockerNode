@@ -31,12 +31,12 @@ node('centos'){
     stage('BUILD HTTP Server') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("4wd-HTTP-Server")
+        app = docker.build("4wd-http-server")
     }
 
     stage('TEST HTTP Server') { 
         
-         sh '/usr/bin/docker run -d -p 8000:8000 --name 4wd-HTTP-Server-Jenkins 4wd-HTTP-Server'
+         sh '/usr/bin/docker run -d -p 8000:8000 --name 4wd-http-server-by-Jenkins 4wd-http-server'
         
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
