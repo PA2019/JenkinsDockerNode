@@ -16,7 +16,7 @@ node('centos'){
         /* Stop and delete all running
          * docker containers */
         sh '''
-        /usr/bin/docker ps -a -q | wc -l
+        if [[ `/usr/bin/docker ps -a -q | wc -l ]]; then echo "Hello"; else echo NO; fi
         '''
     }
     
