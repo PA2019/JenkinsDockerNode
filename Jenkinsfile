@@ -28,13 +28,13 @@ node('centos'){
         checkout scm
     }
 
-    stage('BUILD PHP-FPM-NGINX Container') {
+    stage('BUILD php-fpm-nginx Container') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         app = docker.build("4wd-php-fpm-nginx")
     }
 
-    stage('TEST PHP-FPM-NGINX Container') { 
+    stage('TEST php-fpm-nginx Container') { 
         
          sh '/usr/bin/docker run -d -p 8123:80 --name 4wd-php-fpm-nginx-BY-JENKINS 4wd-php-fpm-nginx'
         
