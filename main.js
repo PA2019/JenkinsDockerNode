@@ -2,18 +2,15 @@
 
 var http = require('http');
 
-
-
 // configure our HTTP server
 
 var server = http.createServer(function (request, response) {
 
   response.writeHead(200, {"Content-Type": "text/plain"});
 
-  response.end("Hello github.com/PA2019/JenkinsDockerNode\n");
+  response.end("Hello... The source of this Jenkins pipeline executed inside a Docker container is located at github.com/PA2019/JenkinsDockerNode\n");
 
 });
-
 
 // listen on localhost:8000
 
