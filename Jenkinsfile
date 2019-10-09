@@ -18,8 +18,8 @@ node('centos'){
         sh '''
         if [ `docker ps -a -q | wc -l` -gt 0 ];
             then
-                sh '/usr/bin/docker stop $(docker ps -a -q)'
-                sh '/usr/bin/docker rm $(docker ps -a -q)'
+                sh '/usr/bin/docker stop $(/usr/bin/docker ps -a -q)'
+                sh '/usr/bin/docker rm $(/usr/bin/docker ps -a -q)'
                  /* sh 'exit 1' */
         fi
         '''
