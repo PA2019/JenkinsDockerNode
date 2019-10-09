@@ -28,15 +28,15 @@ node('centos'){
         checkout scm
     }
 
-    stage('BUILD HTTP Server') {
+    stage('BUILD PHP-FPM-NGINX Container') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         app = docker.build("4wd-php-fpm-nginx")
     }
 
-    stage('TEST HTTP Server') { 
+    stage('TEST PHP-FPM-NGINX Container') { 
         
-         sh '/usr/bin/docker run -d -p 8123:80 --name 4wd-php-fpm-nginx-BY-Jenkins 4wd-php-fpm-nginx'
+         sh '/usr/bin/docker run -d -p 8123:80 --name 4wd-php-fpm-nginx-BY-JENKINS 4wd-php-fpm-nginx'
         
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
