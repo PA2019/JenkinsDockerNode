@@ -6,13 +6,13 @@ node('centos'){
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Build HTTP Server') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
         app = docker.build("pa-test")
     }
 
-    stage('Test image') { 
+    stage('Run HTTP Server') { 
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
@@ -25,12 +25,9 @@ node('centos'){
         }*/
         
         sh '/usr/bin/docker run -d -p 8000:8000 pa-test'
-        
-        /* step {  */
-             /* sh 'echo "Tests passed for PA2019-JenkinsDockerNode"' */
-             /* sh "cd back-end && bin/ci" */       
-           /* sh '/usr/bin/docker run -it -p 8000:8000 pa-test'
-         }  */
+        /* sh "cd back-end && bin/ci" */       
+       /* sh '/usr/bin/docker run -it -p 8000:8000 pa-test'
+      
     } 
 
 }
