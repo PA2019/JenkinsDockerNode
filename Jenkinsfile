@@ -23,6 +23,9 @@ node('centos'){
          docker.image('pa-test').withRun('-p 8000:8000') {
             /* do things */
         }
+        
+        sh '/usr/bin/docker run -it -p 8000:8000 pa-test
+        
         /* step {  */
              /* sh 'echo "Tests passed for PA2019-JenkinsDockerNode"' */
              /* sh "cd back-end && bin/ci" */       
