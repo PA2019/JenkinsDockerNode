@@ -24,7 +24,7 @@ node('centos'){
             
         }*/
         
-        sh '/usr/bin/docker run -it -p 8000:8000 pa-test'
+        sh '/usr/bin/docker run -d -p 8000:8000 pa-test'
         
         /* step {  */
              /* sh 'echo "Tests passed for PA2019-JenkinsDockerNode"' */
