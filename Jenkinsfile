@@ -35,6 +35,9 @@ node('centos'){
     }
 
     stage('Run HTTP Server') { 
+        
+         sh '/usr/bin/docker run -d -p 8000:8000 pa-test'
+        
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
@@ -43,12 +46,9 @@ node('centos'){
          } 
         
          docker.image('pa-test').withRun('-p 8000:8000') {
-            
-        }*/
-        
-        sh '/usr/bin/docker run -d -p 8000:8000 pa-test'
-        /* sh "cd back-end && bin/ci" */       
-       /* sh '/usr/bin/docker run -it -p 8000:8000 pa-test' */
+         sh "cd back-end && bin/ci"     
+       sh '/usr/bin/docker run -it -p 8000:8000 pa-test
+        } */
       
     } 
 
