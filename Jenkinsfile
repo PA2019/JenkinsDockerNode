@@ -15,16 +15,12 @@ node('centos'){
     stage('Cleanup Containers') {
         /* Stop and delete all running
          * docker containers */
-        try {
-            sh '/usr/bin/docker stop $(docker ps -a -q)'
-            sh '/usr/bin/docker rm $(docker ps -a -q)'
-             /* sh 'exit 1' */
-        }
-        catch (exc) {
-            echo 'Something failed, I should sound the klaxons!'
-            throw exc
-        }
-        
+        if [[ `docker ps -a -q | wc -l` -gt 0 ]];
+            then
+                sh '/usr/bin/docker stop $(docker ps -a -q)'
+                sh '/usr/bin/docker rm $(docker ps -a -q)'
+                 /* sh 'exit 1' */
+        fi        
     }
     
     stage('Run HTTP Server') { 
