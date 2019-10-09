@@ -16,4 +16,4 @@ var server = http.createServer(function (request, response) {
 
 server.listen(8000);
 
-console.log("4WD Local Server listening at http://127.0.0.1:8000/");
+console.log("Local Host Server listening at http://127.0.0.1:8000/");
