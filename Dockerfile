@@ -12,3 +12,4 @@ HEALTHCHECK --interval=5s \
 # docker to expose this port
 EXPOSE 8000
 
+ENTRYPOINT ["node", "main.js"]
