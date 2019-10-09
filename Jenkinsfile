@@ -36,7 +36,7 @@ node('centos'){
 
     stage('TEST HTTP Server') { 
         
-         sh '/usr/bin/docker run -d -p 8000:8000 --name 4wd-http-server-by-Jenkins 4wd-http-server'
+         sh '/usr/bin/docker run -d -p 8000:8000 --name 4wd-http-server-BY-Jenkins 4wd-http-server'
         
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
