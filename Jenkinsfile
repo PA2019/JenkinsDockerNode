@@ -16,15 +16,15 @@ node('centos'){
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
-          app.inside {
+         /* app.inside {
              sh 'echo "Tests passed for PA2019-JenkinsDockerNode"'  
          } 
         
          docker.image('pa-test').withRun('-p 8000:8000') {
-            /* do things */
-        }
+            
+        }*/
         
-        sh '/usr/bin/docker run -it -p 8000:8000 pa-test
+        sh '/usr/bin/docker run -it -p 8000:8000 pa-test'
         
         /* step {  */
              /* sh 'echo "Tests passed for PA2019-JenkinsDockerNode"' */
